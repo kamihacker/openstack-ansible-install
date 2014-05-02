@@ -1,5 +1,6 @@
 ---
 - name: deploy Open Stack controler
+# change next line to match your server name or group of servers
   hosts: 192.168.122.68
   user: root
   sudo: yes
@@ -22,7 +23,9 @@
     with_items:
     - libselinux-python
     - ntp
-
+    - iptables
+    - iptables-services
+  
   - name: disable selinux
     action: selinux policy=targeted state=permissive
 
